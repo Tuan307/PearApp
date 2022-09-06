@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "432619981608",
+    "firebase_url": "https://pearup-9bf63-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "pearup-9bf63",
+    "storage_bucket": "pearup-9bf63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432619981608:android:6d30566aa2541cb09e9e1d",
+        "android_client_info": {
+          "package_name": "com.example.daggerhilt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432619981608-ad1q5lke1h7b7me3lnumjkp2bbstpdfc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLnCQrRkz9wkJBitB1WN4lA4ogRYTda2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432619981608-ad1q5lke1h7b7me3lnumjkp2bbstpdfc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432619981608:android:26d835d0b93c77919e9e1d",
+        "android_client_info": {
+          "package_name": "com.example.learningproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432619981608-ad1q5lke1h7b7me3lnumjkp2bbstpdfc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLnCQrRkz9wkJBitB1WN4lA4ogRYTda2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432619981608-ad1q5lke1h7b7me3lnumjkp2bbstpdfc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

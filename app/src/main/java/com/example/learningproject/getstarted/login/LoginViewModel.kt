@@ -16,13 +16,15 @@ class LoginViewModel : ViewModel() {
     fun getMessage() = message as LiveData<String>
     val emailInput: MutableLiveData<String> = MutableLiveData()
     val passwordInput: MutableLiveData<String> = MutableLiveData()
-
+    private val progressBar: MutableLiveData<Boolean> = MutableLiveData()
+    fun getProgressBar() = progressBar as LiveData<Boolean>
     fun moveToSignUp() {
         message.value = Constant.moveToSignUp
     }
 
     fun signIn() {
         viewModelScope.launch(Dispatchers.IO) {
+            progressBar.postValue(true)
             val email = emailInput.value.toString()
             val password = passwordInput.value.toString()
             Log.e("checkInput", password)
@@ -34,8 +36,10 @@ class LoginViewModel : ViewModel() {
                     } else {
                         message.postValue(Constant.loginPasswordError)
                     }
+                    progressBar.postValue(false)
                 }
             } else {
+                progressBar.postValue(false)
                 message.postValue(Constant.loginError)
             }
         }

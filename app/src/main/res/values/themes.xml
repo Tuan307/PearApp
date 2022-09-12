@@ -1,9 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.LearningProject" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Theme.LearningProject" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">#939191</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimaryVariant">@color/homeColor</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -13,4 +14,18 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.LearningProject.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.SocialApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.SocialApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="StatusBarColorDiary" parent="Theme.LearningProject">
+        <item name="android:statusBarColor">#7E9C83</item>
+    </style>
+
 </resources>

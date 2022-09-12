@@ -10,7 +10,7 @@
             type="com.example.learningproject.home.viewmodel.DiaryViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/greenbg"
@@ -33,6 +33,7 @@
                     android:id="@+id/imgBackDiary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/todo"
                     android:src="@drawable/ic_arrow_back" />
 
                 <TextView
@@ -50,7 +51,9 @@
             android:id="@+id/diaryRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/appBarDiary"
+            android:layout_marginTop="10dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 </layout>

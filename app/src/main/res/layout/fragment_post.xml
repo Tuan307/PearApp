@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.learningproject.home.viewmodel.PostViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".home.view.PostFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/postBackGround">
+
+            <TextView
+                android:id="@+id/txtPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/post"
+                android:textColor="@color/white"
+                android:textSize="29sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnPublic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dialog_confirm_logout_bg"
+                android:text="@string/post_public"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/txtPost"
+                app:layout_constraintEnd_toStartOf="@id/btnPrivate"
+                app:layout_constraintTop_toTopOf="@+id/txtPost" />
+
+            <Button
+                android:id="@+id/btnPrivate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="@string/post_private"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/txtPost"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtPost" />
+
+            <Button
+                android:id="@+id/btnPostRestart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/dialog_confirm_logout_bg"
+                android:backgroundTint="@color/postBackGround"
+                android:elevation="10dp"
+                android:onClick="@{()->model.onClickRestart()}"
+                android:paddingHorizontal="25dp"
+                android:stateListAnimator="@null"
+                android:text="@string/restart"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:translationZ="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/txtPost"
+                app:layout_constraintStart_toStartOf="@+id/txtPost"
+                app:layout_constraintTop_toBottomOf="@+id/txtPost" />
+
+            <ImageView
+                android:id="@+id/imgLeaf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/leaf_green_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPrivate" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/postCardView"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginHorizontal="30dp"
+                android:background="@color/white"
+                app:cardCornerRadius="11dp"
+                app:layout_constraintTop_toBottomOf="@+id/imgLeaf">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="30dp">
+
+                    <TextView
+                        android:id="@+id/txtPostDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp"
+                        android:text="@{model.inputData}"
+                        android:textColor="@color/postText"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        tools:text="march 6, 2022" />
+
+                    <TextView
+                        android:id="@+id/txtPostToday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtPostDate"
+                        android:text="@string/what_s_on_your_mind_today"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edtPost"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@id/txtWordRemain"
+                        android:layout_below="@+id/txtPostToday"
+                        android:background="@android:color/transparent"
+                        android:gravity="start"
+                        android:inputType="textMultiLine"
+                        android:maxLength="1000"
+                        android:text="@={model.inputDiary}"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtWordRemain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/dialog_confirm_logout_bg"
+                        android:backgroundTint="@color/postBackGround"
+                        android:paddingHorizontal="15dp"
+                        android:paddingVertical="5dp"
+                        android:text="@string/_1000_words_maximum"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/imgPostPencil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="2dp"
+                android:src="@drawable/postpen"
+                app:layout_constraintBottom_toBottomOf="@id/postCardView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/postCardView" />
+
+            <View
+                android:id="@+id/postView"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@drawable/line"
+                app:layout_constraintBottom_toBottomOf="@id/imgPostPencil"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imgPostPencil"
+                app:layout_constraintVertical_bias="0.7" />
+
+            <ImageView
+                android:id="@+id/postPear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="2dp"
+                android:src="@drawable/postpear"
+                app:layout_constraintEnd_toEndOf="@+id/postCardView"
+                app:layout_constraintTop_toTopOf="@+id/postView" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/leaf_right"
+                app:layout_constraintEnd_toStartOf="@+id/postPear"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/postCardView" />
+
+            <Button
+                android:id="@+id/btnPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/dialog_confirm_logout_bg"
+                android:backgroundTint="@color/postBackGround"
+                android:onClick="@{()->model.onPostDiary()}"
+                android:text="@string/post"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:translationZ="2dp"
+                app:layout_constraintStart_toStartOf="@+id/postCardView"
+                app:layout_constraintTop_toBottomOf="@+id/postCardView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

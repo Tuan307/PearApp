@@ -16,4 +16,7 @@
     <color name="floatButton">#97C79F</color>
     <color name="dialogConfirmLogoutText">#547234</color>
     <color name="dialogConfirmButton">#B4BF60</color>
+    <color name="postBackGround">#A2BFA6</color>
+    <color name="postText">#CCCCCC</color>
+    <color name="transColor">#00ff0000</color>
 </resources>

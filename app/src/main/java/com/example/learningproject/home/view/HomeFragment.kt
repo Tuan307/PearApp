@@ -3,6 +3,8 @@ package com.example.learningproject.home.view
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import com.example.learningproject.R
 import com.example.learningproject.base.BaseFragmentMVVM
 import com.example.learningproject.databinding.FragmentHomeBinding
@@ -17,6 +19,15 @@ class HomeFragment : BaseFragmentMVVM<FragmentHomeBinding, HomeViewModel>() {
         viewModel.getClickStatus().observe(viewLifecycleOwner, Observer {
 
         })
+        binding.apply {
+            btnAddDiary.setOnClickListener {
+                findNavController().navigate(
+                    R.id.postFragment, null, NavOptions.Builder()
+                        .setPopUpTo(R.id.homeFragment, true)
+                        .build()
+                )
+            }
+        }
     }
 
     override fun getFragmentView(): Int = R.layout.fragment_home

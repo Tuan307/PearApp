@@ -1,10 +1,8 @@
 package com.example.learningproject.home
 
-import android.app.Activity
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -20,6 +18,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
                     as NavHostFragment

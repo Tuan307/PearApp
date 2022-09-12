@@ -9,7 +9,12 @@
         android:id="@+id/homeFragment"
         android:name="com.example.learningproject.home.view.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+    </fragment>
     <fragment
         android:id="@+id/diaryFragment"
         android:name="com.example.learningproject.home.view.DiaryFragment"
@@ -25,4 +30,13 @@
         android:name="com.example.learningproject.home.view.UserFragment"
         android:label="fragment_user"
         tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.example.learningproject.home.view.PostFragment"
+        android:label="PostFragment">
+
+        <action
+            android:id="@+id/action_postFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

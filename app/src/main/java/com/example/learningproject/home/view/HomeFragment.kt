@@ -1,23 +1,27 @@
 package com.example.learningproject.home.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import com.example.learningproject.R
+import com.example.learningproject.base.BaseFragmentMVVM
+import com.example.learningproject.databinding.FragmentHomeBinding
+import com.example.learningproject.home.viewmodel.HomeViewModel
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragmentMVVM<FragmentHomeBinding, HomeViewModel>() {
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.model = viewModel
+        viewModel.getClickStatus().observe(viewLifecycleOwner, Observer {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        })
     }
+
+    override fun getFragmentView(): Int = R.layout.fragment_home
+
+    override fun getViewModel(): Class<HomeViewModel> = HomeViewModel::class.java
 
 
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="25dp"
+    android:background="@android:color/transparent">
+
+    <TextView
+        android:paddingVertical="20dp"
+        android:id="@+id/txtConfirmLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_confirm_logout_bg"
+        android:gravity="center"
+        android:textColor="@color/dialogConfirmLogoutText"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/are_you_sure_you_n_want_to_log_out" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtConfirmLogout"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/dialog_confirm_logout_bg"
+        android:backgroundTint="@color/dialogConfirmButton"
+        android:text="@string/yes_i_m_sure_see_you"
+        android:textAllCaps="false"
+        android:textColor="@color/dialogConfirmLogoutText"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnCancelLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogout"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/dialog_confirm_logout_bg"
+        android:text="@string/wait_take_me_back"
+        android:textAllCaps="false"
+        android:textColor="@color/dialogConfirmLogoutText"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+</RelativeLayout>

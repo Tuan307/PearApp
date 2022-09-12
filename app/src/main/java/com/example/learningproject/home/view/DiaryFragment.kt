@@ -1,23 +1,29 @@
 package com.example.learningproject.home.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.learningproject.R
+import com.example.learningproject.base.BaseFragmentMVVM
+import com.example.learningproject.databinding.FragmentDiaryBinding
+import com.example.learningproject.home.viewmodel.DiaryViewModel
 
 
-class DiaryFragment : Fragment() {
+class DiaryFragment : BaseFragmentMVVM<FragmentDiaryBinding, DiaryViewModel>() {
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_diary, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.model = viewModel
+        binding.apply {
+            imgBackDiary.setOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
     }
+
+    override fun getFragmentView(): Int = R.layout.fragment_diary
+
+    override fun getViewModel(): Class<DiaryViewModel> = DiaryViewModel::class.java
 
 
 }

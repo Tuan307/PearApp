@@ -25,5 +25,16 @@
     <string name="how_old_are_you">How old are you</string>
     <string name="what_is_your_gender">What is your gender</string>
     <string name="where_are_you_from">Where are you from</string>
+    <string name="what_would_you_like_to_do_today">What would you like to do today?</string>
+    <string name="let_s_get_started">Let’s get started!</string>
+    <string name="diary">Diary</string>
+    <string name="my_profile">My Profile</string>
+    <string name="friends">Friends</string>
+    <string name="settings">Settings</string>
+    <string name="help">Help</string>
+    <string name="log_out">Log Out</string>
+    <string name="wait_take_me_back">Wait, take me back!</string>
+    <string name="yes_i_m_sure_see_you">Yes, I’m sure. See you!</string>
+    <string name="are_you_sure_you_n_want_to_log_out">Are you sure you\n want to log out</string>
 
 </resources>

@@ -1,14 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".home.view.HomeFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.learningproject.home.viewmodel.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/homeColor"
+        tools:context=".home.view.HomeFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/homeGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/sun"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgHomeProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtWelcomeHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{model.inputName}"
+            android:textColor="@color/textHomeColor"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/imgHomeProfile"
+            app:layout_constraintTop_toBottomOf="@+id/imgHomeProfile"
+            tools:text="Welcome back \n tuan" />
+
+        <TextView
+            android:id="@+id/txtToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/what_would_you_like_to_do_today"
+            android:textColor="#494949"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/txtWelcomeHome"
+            app:layout_constraintTop_toBottomOf="@+id/txtWelcomeHome" />
+
+
+        <ImageView
+            android:id="@+id/imgAccessDiary"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="25dp"
+            android:contentDescription="@string/todo"
+            android:onClick="@{()->model.onAccessDiary()}"
+            android:paddingStart="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/makediart"
+            app:layout_constraintEnd_toStartOf="@+id/homeGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtToday"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageView
+            android:id="@+id/imgTalkPrivately"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="25dp"
+            android:contentDescription="@string/todo"
+            android:onClick="@{()->model.onTalkPrivately()}"
+            android:paddingEnd="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/talkkprivate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/homeGuideline"
+            app:layout_constraintTop_toBottomOf="@id/txtToday"
+            tools:ignore="RtlSymmetry" />
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imgThisOne"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:src="@drawable/thisone"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imgLight"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:src="@drawable/light"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/imgThisOne"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/imgThisOne" />-->
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAddDiary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/floatButton"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/iconpuls"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/bottom_home"
+        android:id="@+id/homeFragment"
         android:icon="@drawable/icons"
+        android:iconTint="@color/white"
         android:title="" />
     <item
-        android:id="@+id/bottom_diary"
+        android:id="@+id/diaryFragment"
         android:icon="@drawable/icons1"
+        android:iconTint="@color/white"
         android:title="" />
     <item
-        android:id="@+id/bottom_message"
+        android:id="@+id/messageFragment"
         android:icon="@drawable/icons2"
+        android:iconTint="@color/white"
         android:title="" />
     <item
-        android:id="@+id/bottom_user"
+        android:id="@+id/userFragment"
         android:icon="@drawable/icons3"
+        android:iconTint="@color/white"
         android:title="" />
 </menu>

@@ -9,4 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="login">#FFFBF3</color>
     <color name="textColor">#2D5500</color>
+    <color name="homeColor">#FFFBF3</color>
+    <color name="textHomeColor">#035352</color>
+    <color name="darkGreen">#095755</color>
+    <color name="toolBar">#7E9C83</color>
+    <color name="floatButton">#97C79F</color>
+    <color name="dialogConfirmLogoutText">#547234</color>
+    <color name="dialogConfirmButton">#B4BF60</color>
 </resources>

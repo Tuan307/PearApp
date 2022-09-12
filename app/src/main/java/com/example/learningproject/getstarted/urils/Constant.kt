@@ -10,4 +10,6 @@ object Constant {
     const val isSuccessful = "is_successful"
     const val isError = "is_error"
     const val passwordError = "password_error"
+    const val accessDiary = "access_diary"
+    const val talkPrivately = "talk_privately"
 }

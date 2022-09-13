@@ -135,46 +135,65 @@
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toTopOf="@id/firstLine" />
 
-        <EditText
-            android:id="@+id/edtEmail"
+        <FrameLayout
+            android:id="@+id/frameEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
             android:layout_marginTop="18dp"
-            android:background="@drawable/signbtn"
-            android:drawableStart="@drawable/email_icon"
-            android:drawablePadding="15dp"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:paddingVertical="16dp"
-            android:paddingStart="15dp"
-            android:text="@={model.emailInput}"
-            android:textColor="@color/textColor"
-            android:textColorHint="@color/textColor"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/firstLine"
-            tools:ignore="RtlSymmetry" />
+            app:layout_constraintTop_toBottomOf="@+id/firstLine">
 
-        <EditText
-            android:id="@+id/edtPassword"
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:drawableStart="@drawable/email_icon"
+                    android:drawablePadding="15dp"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:paddingVertical="16dp"
+                    android:paddingStart="15dp"
+                    android:text="@={model.emailInput}"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/textColor"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/framePassword"
             android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/signbtn"
-            android:drawableStart="@drawable/password"
-            android:drawablePadding="15dp"
-            android:hint="@string/password"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            android:paddingVertical="16dp"
-            android:paddingStart="15dp"
-            android:text="@={model.passwordInput}"
-            android:textColor="@color/textColor"
-            android:textColorHint="@color/textColor"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/edtEmail"
-            tools:ignore="RtlSymmetry" />
+            app:layout_constraintTop_toBottomOf="@+id/frameEmail">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:drawableStart="@drawable/password"
+                    android:drawablePadding="15dp"
+                    android:hint="@string/password"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword"
+                    android:paddingVertical="16dp"
+                    android:paddingStart="15dp"
+                    android:text="@={model.passwordInput}"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/textColor"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </FrameLayout>
+
 
         <Button
             android:id="@+id/btnSignIn"
@@ -187,7 +206,7 @@
             android:text="@string/sign_in"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@+id/edtPassword"
+            app:layout_constraintTop_toBottomOf="@+id/framePassword"
             tools:layout_editor_absoluteX="35dp" />
 
         <TextView

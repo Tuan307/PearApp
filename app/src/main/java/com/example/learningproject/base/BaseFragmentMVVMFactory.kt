@@ -9,8 +9,11 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.learningproject.home.roomdb.PostDatabase
+import com.example.learningproject.home.roomdb.PostRepository
+import com.example.learningproject.home.viewmodel.AppViewModelFactory
 
-abstract class BaseFragmentMVVM<T : ViewDataBinding, VM : ViewModel> : Fragment() {
+abstract class BaseFragmentMVVMFactory<T : ViewDataBinding, VM : ViewModel> : Fragment() {
     protected lateinit var binding: T
     protected lateinit var viewModel: VM
     override fun onCreateView(
@@ -24,7 +27,10 @@ abstract class BaseFragmentMVVM<T : ViewDataBinding, VM : ViewModel> : Fragment(
             container,
             false
         )
-        viewModel = ViewModelProvider(this)[getViewModel()]
+        val dao = PostDatabase.getInstance(requireContext()).postDao()
+        val repository = PostRepository(dao)
+        val factory = AppViewModelFactory(repository)
+        viewModel = ViewModelProvider(this, factory)[getViewModel()]
         binding.lifecycleOwner = this
         return binding.root
     }

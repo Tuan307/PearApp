@@ -1,41 +1,18 @@
 package com.example.learningproject.home.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.learningproject.R
+import com.example.learningproject.base.BaseFragmentMVVMFactory
 import com.example.learningproject.databinding.FragmentPostBinding
-import com.example.learningproject.home.roomdb.PostDatabase
-import com.example.learningproject.home.roomdb.PostRepository
-import com.example.learningproject.home.viewmodel.AppViewModelFactory
 import com.example.learningproject.home.viewmodel.PostViewModel
 
-class PostFragment : Fragment() {
-    private lateinit var binding: FragmentPostBinding
-    private lateinit var viewModel: PostViewModel
+class PostFragment : BaseFragmentMVVMFactory<FragmentPostBinding, PostViewModel>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_post,
-            container,
-            false
-        )
-        binding.lifecycleOwner = this
-        val dao = PostDatabase.getInstance(requireContext()).postDao()
-        val repository = PostRepository(dao)
-        val factory = AppViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, factory)[PostViewModel::class.java]
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.model = viewModel
         activity?.window?.statusBarColor = resources.getColor(R.color.postBackGround)
         binding.apply {
@@ -75,8 +52,10 @@ class PostFragment : Fragment() {
                 }
             }
         })
-        return binding.root
-
     }
+
+    override fun getFragmentView(): Int = R.layout.fragment_post
+
+    override fun getViewModel(): Class<PostViewModel> = PostViewModel::class.java
 
 }

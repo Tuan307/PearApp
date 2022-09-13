@@ -63,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 Handler(Looper.myLooper()!!).postDelayed(Runnable {
                     binding.loginProgressBar.visibility = View.GONE
-                }, 1500)
+                }, 1000)
             }
         })
     }

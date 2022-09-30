@@ -8,6 +8,7 @@
         <entry key="..\:/New Things/LearningProject/app/src/main/res/drawable/dialog_confirm_logout_bg.xml" value="0.137" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/drawable/line.xml" value="0.1185" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/drawable/line_1.xml" value="0.137" />
+        <entry key="..\:/New Things/LearningProject/app/src/main/res/drawable/searchview.xml" value="0.137" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/drawable/signbtn.xml" value="0.156" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/activity_data_collection.xml" value="0.2" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/activity_detail_sign_up.xml" value="0.25416666666666665" />
@@ -16,9 +17,11 @@
         <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
+        <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/community_post_item.xml" value="0.4" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/dialog_confirm_logout.xml" value="0.264" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/dialog_result.xml" value="0.20863616930312098" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/diary_item.xml" value="0.2" />
+        <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/fragment_community.xml" value="0.264" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/fragment_diary.xml" value="0.2" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/New Things/LearningProject/app/src/main/res/layout/fragment_message.xml" value="0.24010416666666667" />

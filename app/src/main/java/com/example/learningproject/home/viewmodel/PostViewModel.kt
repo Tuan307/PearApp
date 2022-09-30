@@ -6,10 +6,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.learningproject.getstarted.urils.Constant
 import com.example.learningproject.home.model.CommunityPost
 import com.example.learningproject.home.model.Post
+import com.example.learningproject.home.model.User
 import com.example.learningproject.home.roomdb.PostRepository
 import com.example.learningproject.network.BaseNetwork
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.text.DateFormat
@@ -38,8 +43,7 @@ class PostViewModel(private val post: PostRepository) : ViewModel() {
     @SuppressLint("SimpleDateFormat")
     private fun getData() {
         viewModelScope.launch {
-            val df: DateFormat = SimpleDateFormat("EEE, d MMM yyyy, HH:mm")
-            val date: String = df.format(Calendar.getInstance().time)
+            val date: String = Constant.df.format(Calendar.getInstance().time)
             inputData.postValue(date)
         }
     }
@@ -65,16 +69,27 @@ class PostViewModel(private val post: PostRepository) : ViewModel() {
             } else {
                 // do something later for public community
                 val uid = BaseNetwork.fireAuth.currentUser?.uid ?: ""
-                val id = BaseNetwork.dataRef.push().toString()
+                val id = BaseNetwork.dataRef.child("Users").push().key.toString()
+                Log.e("CheckId", id)
                 viewModelScope.launch(Dispatchers.IO) {
-                    BaseNetwork.dataRef.child("Community").child(uid)
-                        .child(id).setValue(CommunityPost(id, text, date)).addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                errorMessage.postValue("Successfully added your post")
-                            } else {
-                                errorMessage.postValue("Something was wrong,please try again later")
+                    BaseNetwork.dataRef.child("Users").child(uid)
+                        .addValueEventListener(object : ValueEventListener {
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                val name = snapshot.getValue(User::class.java)?.nickname ?: ""
+                                BaseNetwork.dataRef.child("community")
+                                    .child(id).setValue(CommunityPost(id, text, date, name))
+                                    .addOnCompleteListener {
+                                        if (it.isSuccessful) {
+                                            errorMessage.postValue("Successfully added your post")
+                                        } else {
+                                            errorMessage.postValue("Something was wrong,please try again later")
+                                        }
+                                    }
                             }
-                        }
+
+                            override fun onCancelled(error: DatabaseError) {
+                            }
+                        })
                 }
             }
         }

@@ -17,7 +17,9 @@ class DiaryFragment : BaseFragmentMVVMFactory<FragmentDiaryBinding, DiaryViewMod
 
 
     private val diaryAdapter: DiaryAdapter by lazy {
-        DiaryAdapter()
+        DiaryAdapter(){
+
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

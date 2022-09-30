@@ -18,6 +18,7 @@ class PostFragment : BaseFragmentMVVMFactory<FragmentPostBinding, PostViewModel>
         binding.apply {
             btnPublic.tag = "open"
             btnPrivate.tag = "close"
+            viewModel.setInputMode("public")
             btnPublic.setOnClickListener {
                 if (btnPublic.tag == "close") {
                     viewModel.setInputMode("public")

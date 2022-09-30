@@ -1,5 +1,8 @@
 package com.example.learningproject.getstarted.urils
 
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+
 object Constant {
     //login&register
     const val moveToSignUp = "move_to_sign_up"
@@ -15,6 +18,8 @@ object Constant {
     //post
     const val accessDiary = "access_diary"
     const val talkPrivately = "talk_privately"
+
+    val df: DateFormat = SimpleDateFormat("EEE, d MMM yyyy, HH:mm")
 
     //diary
     const val diarySuccess = "Successfully syncing data to cloud"

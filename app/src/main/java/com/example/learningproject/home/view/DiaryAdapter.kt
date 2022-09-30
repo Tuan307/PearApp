@@ -7,16 +7,19 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learningproject.R
 import com.example.learningproject.databinding.DiaryItemBinding
+import com.example.learningproject.home.model.CommunityPost
 import com.example.learningproject.home.model.MyDiffUtil
 import com.example.learningproject.home.model.Post
 
-class DiaryAdapter : RecyclerView.Adapter<DiaryAdapter.ViewHolder>() {
+class DiaryAdapter(private val lister: (CommunityPost) -> Unit) :
+    RecyclerView.Adapter<DiaryAdapter.ViewHolder>() {
     private var list = emptyList<Post>()
 
     inner class ViewHolder(private val binding: DiaryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Post) {
             binding.model = item
+            //continue here
         }
     }
 

@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_homeFragment_to_postFragment"
             app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
     </fragment>
     <fragment
         android:id="@+id/diaryFragment"
@@ -39,4 +42,8 @@
             android:id="@+id/action_postFragment_to_homeFragment2"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.example.learningproject.home.view.CommunityFragment"
+        android:label="CommunityFragment" />
 </navigation>

@@ -10,11 +10,11 @@ data class User(
     val gender: String
 ) {
     constructor() : this(
-        "",
-        "",
-        "", "",
-        0,
-        "",
-        ""
+        fullName = "",
+        nickname = "",
+        userId = "", email = "",
+        age = 0,
+        country = "",
+        gender = ""
     )
 }

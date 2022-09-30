@@ -41,6 +41,12 @@ class SignUpViewModel : ViewModel() {
                                 hm["fullName"] = name
                                 hm["email"] = email
                                 hm["userId"] = userId
+                                /*
+                                    this newUser is used to check if the user is new or not
+                                    if the user is new, navigate to the datacollection activitity
+                                    else navigate to the home page of the application
+                                hm["newUser"] = false
+                                 */
                                 BaseNetwork.dataRef.child("Users").child(userId).updateChildren(hm)
                                     .addOnCompleteListener {
                                         if (task.isSuccessful) {

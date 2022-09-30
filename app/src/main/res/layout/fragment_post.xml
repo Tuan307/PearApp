@@ -161,7 +161,7 @@
                 android:id="@+id/imgPostPencil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="2dp"
+                android:elevation="3dp"
                 android:src="@drawable/postpen"
                 app:layout_constraintBottom_toBottomOf="@id/postCardView"
                 app:layout_constraintEnd_toEndOf="parent"

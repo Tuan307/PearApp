@@ -44,6 +44,16 @@
                     android:textColor="@color/white"
                     android:textSize="28sp"
                     android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imgSyncDiary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="@string/todo"
+                    android:onClick="@{()->model.syncData()}"
+                    android:src="@drawable/ic_sync" />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 

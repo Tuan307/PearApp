@@ -3,12 +3,16 @@ package com.example.learningproject.home.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learningproject.R
 import com.example.learningproject.databinding.DiaryItemBinding
+import com.example.learningproject.home.model.MyDiffUtil
 import com.example.learningproject.home.model.Post
 
-class DiaryAdapter(private val list: List<Post>) : RecyclerView.Adapter<DiaryAdapter.ViewHolder>() {
+class DiaryAdapter : RecyclerView.Adapter<DiaryAdapter.ViewHolder>() {
+    private var list = emptyList<Post>()
+
     inner class ViewHolder(private val binding: DiaryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Post) {
@@ -31,5 +35,12 @@ class DiaryAdapter(private val list: List<Post>) : RecyclerView.Adapter<DiaryAda
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    fun setData(newPostList: List<Post>) {
+        val diffUtil = MyDiffUtil(oldList = list, newList = newPostList)
+        val diffResult = DiffUtil.calculateDiff(diffUtil)
+        list = newPostList
+        diffResult.dispatchUpdatesTo(this)
     }
 }

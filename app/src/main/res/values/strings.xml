@@ -46,4 +46,5 @@
     <string name="restart">restart</string>
     <string name="what_s_on_your_mind_today">what’s on your mind today?</string>
     <string name="_1000_words_maximum">1000 words maximum</string>
+    <string name="notification">Notification</string>
 </resources>

@@ -10,4 +10,5 @@ data class Post(
     val text: String,
     val date: String
 ) {
+    constructor() : this(0, "", "")
 }

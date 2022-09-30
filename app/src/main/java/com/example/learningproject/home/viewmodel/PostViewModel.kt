@@ -1,12 +1,15 @@
 package com.example.learningproject.home.viewmodel
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.learningproject.home.model.CommunityPost
 import com.example.learningproject.home.model.Post
 import com.example.learningproject.home.roomdb.PostRepository
+import com.example.learningproject.network.BaseNetwork
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.text.DateFormat
@@ -32,6 +35,7 @@ class PostViewModel(private val post: PostRepository) : ViewModel() {
         getData()
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun getData() {
         viewModelScope.launch {
             val df: DateFormat = SimpleDateFormat("EEE, d MMM yyyy, HH:mm")
@@ -60,9 +64,20 @@ class PostViewModel(private val post: PostRepository) : ViewModel() {
                 }
             } else {
                 // do something later for public community
+                val uid = BaseNetwork.fireAuth.currentUser?.uid ?: ""
+                val id = BaseNetwork.dataRef.push().toString()
+                viewModelScope.launch(Dispatchers.IO) {
+                    BaseNetwork.dataRef.child("Community").child(uid)
+                        .child(id).setValue(CommunityPost(id, text, date)).addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                errorMessage.postValue("Successfully added your post")
+                            } else {
+                                errorMessage.postValue("Something was wrong,please try again later")
+                            }
+                        }
+                }
             }
         }
-
     }
 
     fun onClickRestart() {

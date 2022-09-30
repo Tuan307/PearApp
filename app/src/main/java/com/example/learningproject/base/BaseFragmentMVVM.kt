@@ -24,6 +24,7 @@ abstract class BaseFragmentMVVM<T : ViewDataBinding, VM : ViewModel> : Fragment(
             container,
             false
         )
+        //30/09/2022
         viewModel = ViewModelProvider(this)[getViewModel()]
         binding.lifecycleOwner = this
         return binding.root
